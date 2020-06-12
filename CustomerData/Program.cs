@@ -15,21 +15,9 @@ namespace CustomerData
 
             Console.WriteLine($"MySQL version:   {con.ServerVersion}");
 
-            var stm = "SELECT VERSION()";
-            var cmd = new MySqlCommand(stm, con);
-
-            var verson = cmd.ExecuteScalar().ToString();
-            Console.WriteLine($"MySQL version: {verson}");
-
-            insertData(con);
-                   
-        }
-
-        private static void insertData(MySqlConnection con)
-        {
-            var stm = "INSERT INTO cars (name, price) VALUES ('Limo', '65465189616')";
-            var cmd = new MySqlCommand(stm, con);
-            cmd.ExecuteNonQuery();
+            CustomerDBReader customerDBReader = new CustomerDBReader(con);
+            customerDBReader.readAllData();
+                               
         }
     }
 }
