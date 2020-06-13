@@ -17,7 +17,8 @@ namespace CustomerData
 
             CustomerDBReader customerDBReader = new CustomerDBReader(con);
             customerDBReader.readAllData();
-                               
+            
+
         }
     }
 }
